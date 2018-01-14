@@ -1,0 +1,7 @@
+
+suites:
+  default:
+    namespace: MKolecki\Behat\FixturesExtension
+    psr4_prefix: MKolecki\Behat\FixturesExtension
+
+formatter.name: pretty

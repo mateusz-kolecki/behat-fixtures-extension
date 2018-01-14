@@ -1,0 +1,31 @@
+{
+  "name": "mkolecki/behat-fixtures-extension",
+  "description": "Behat extension for loading fixtures to your context.",
+  "license": "MIT",
+  "type": "library",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Mateusz Kołecki",
+      "email": "kolecki.mateusz@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "behat/behat": "^3.4",
+    "symfony/yaml": "^2.8"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "MKolecki\\Behat\\FixturesExtension\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\MKolecki\\Behat\\FixturesExtension\\": "spec/"
+    }
+  }
+}

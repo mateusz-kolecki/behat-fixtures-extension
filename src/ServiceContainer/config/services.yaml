@@ -1,0 +1,34 @@
+---
+services:
+
+  mkolecki.behat_fixtures_ext.fixtures_factory:
+    class: MKolecki\Behat\FixturesExtension\FixturesFactory
+    arguments:
+      - %mkolecki.behat_fixtures_ext.fixtures_config.delimiter%
+
+
+  mkolecki.behat_fixtures_ext.yaml_parser:
+    class: MKolecki\Behat\FixturesExtension\Parser\YamlParser
+    tags:
+      - { name: mkolecki.behat_fixtures_ext.parser }
+
+  mkolecki.behat_fixtures_ext.json_parser:
+    class: MKolecki\Behat\FixturesExtension\Parser\JsonParser
+    tags:
+      - { name: mkolecki.behat_fixtures_ext.parser }
+
+
+  mkolecki.behat_fixtures_ext.fixtures_loader:
+    class: MKolecki\Behat\FixturesExtension\FixturesLoader
+    arguments:
+      - @mkolecki.behat_fixtures_ext.fixtures_factory
+
+
+  mkolecki.behat_fixtures_ext.fixtures_arguments_resolver:
+    class: MKolecki\Behat\FixturesExtension\FixturesArgumentResolver
+    tags:
+      - { name: context.argument_resolver, priority: 100 }
+    arguments:
+      - @mkolecki.behat_fixtures_ext.fixtures_loader
+      - %mkolecki.behat_fixtures_ext.fixtures_config%
+
