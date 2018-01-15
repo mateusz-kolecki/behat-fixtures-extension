@@ -26,5 +26,8 @@
     "psr-4": {
       "spec\\MKolecki\\Behat\\FixturesExtension\\": "spec/"
     }
+  },
+  "config": {
+    "bin-dir": "bin"
   }
 }
