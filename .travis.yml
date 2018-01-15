@@ -1,10 +1,13 @@
+language: php
+
+dist: trusty
+sudo: false
 
 matrix:
   include:
     - php: 5.3
       dist: precise
 
-language: php
 php:
   - '5.3'
   - '5.4'
@@ -15,7 +18,8 @@ php:
   - hhvm # on Trusty only
   - nightly
 
-before_script:
+install:
   - composer install --dev --no-interaction --optimize-autoloader
 
-script: php bin/phpspec run
+script:
+  - php bin/phpspec run
