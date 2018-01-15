@@ -17,4 +17,4 @@ php:
 
 before_script:
   - composer install --dev --no-interaction --optimize-autoloader
-  - bin/phpspec run
+  - php bin/phpspec run
