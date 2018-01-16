@@ -45,28 +45,21 @@ Use fixtures in your context code:
 
 ```php
 <?php
-
 use MKolecki\Behat\FixturesExtension\Fixtures;
+use Behat\Behat\Context\Context;
 
-class LoginPageContext
+class LoginContext implements Context
 {
-    /**
-     * @var Fixtures 
-     */
+    /** @var Fixtures */
     private $fixtures;
-    
+
     public function __construct(Fixtures $fixtures)
     {
         $this->fixtures = $fixtures;
     }
 
-    // ...
-
     /**
      * @Then I login with :user
-     *
-     * @param $user
-     * @throws Exception
      */
     public function iLoginWithUser($user)
     {
@@ -75,7 +68,7 @@ class LoginPageContext
 
         // eg. use selenium to fill login form and submit
     }
-    
+
     // ...
 }
 ```
