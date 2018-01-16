@@ -6,6 +6,7 @@ sudo: false
 matrix:
   include:
     - php: 5.3
+      sudo: required
       dist: precise
 
 php:
