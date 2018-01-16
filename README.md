@@ -51,8 +51,8 @@ use MKolecki\Behat\FixturesExtension\Fixtures;
 class LoginPageContext
 {
     /**
-	 * @var Fixtures 
- 	 */
+     * @var Fixtures 
+     */
     private $fixtures;
     
     public function __construct(Fixtures $fixtures)
