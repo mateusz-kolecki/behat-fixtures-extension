@@ -36,7 +36,7 @@ Add extension configuration to your `behat.yml` file:
 ```yaml
 default:
   extensions:
-	MKolecki\Behat\FixturesExtension:
+    MKolecki\Behat\FixturesExtension:
       fixtures:
         users: %paths.base%/fixtures/development/users.yaml
 ```
