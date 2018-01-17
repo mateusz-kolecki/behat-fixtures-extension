@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/mateusz-kolecki/behat-fixtures-extension.svg?branch=master)](https://travis-ci.org/mateusz-kolecki/behat-fixtures-extension)
+[![GitHub issues](https://img.shields.io/github/issues/mateusz-kolecki/behat-fixtures-extension.svg)](https://github.com/mateusz-kolecki/behat-fixtures-extension/issues)
+[![GitHub license](https://img.shields.io/github/license/mateusz-kolecki/behat-fixtures-extension.svg)](https://github.com/mateusz-kolecki/behat-fixtures-extension/blob/master/LICENCE)
+[![Support PHP >= 5.3](https://img.shields.io/badge/PHP-%3E%3D5.3-brightgreen.svg)](http://php.net/)
+
 ---
 
 # Behat fixtures extension
