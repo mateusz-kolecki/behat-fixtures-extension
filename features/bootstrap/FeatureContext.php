@@ -1,8 +1,12 @@
 <?php
 
 /*
- * This file is part of the Behat.
- * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ * This file is part of the Behat Fixtures Extension.
+ *
+ * Based on Behat: https://github.com/Behat/Behat
+ *
+ * Copyright (c) 2016 Konstantin Kudryashov <ever.zet@gmail.com>
+ * Copyright (c) 2018 Mateusz Kołecki <kolecki.mateusz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.

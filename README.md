@@ -98,3 +98,11 @@ Feature: User can login
     And I login with user "with-many-friends"
     Then I see my home page
 ```
+
+# License and Copyright
+
+Code of this extension is published under [MIT license](LICENCE).
+
+Copyright:
+* (c) 2016 Konstantin Kudryashov <ever.zet@gmail.com> - Part of Behat FeatureContext
+* (c) 2018 Mateusz Kołecki <kolecki.mateusz@gmail.com>

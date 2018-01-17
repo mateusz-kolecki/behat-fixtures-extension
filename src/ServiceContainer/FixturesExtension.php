@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Behat Fixtures Extension.
+ *
+ * Copyright (c) 2018 Mateusz Kołecki <kolecki.mateusz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace MKolecki\Behat\FixturesExtension\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
@@ -12,6 +21,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
+/**
+ * @author Mateusz Kołecki <kolecki.mateusz@gmail.com>
+ */
 class FixturesExtension implements ExtensionInterface
 {
     /**
