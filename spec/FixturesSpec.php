@@ -79,4 +79,26 @@ class FixturesSpec extends ObjectBehavior
         $this->shouldThrow('InvalidArgumentException')
             ->during('get', array('foo/bar/dsds'));
     }
+
+    function it_can_be_converted_to_array()
+    {
+        $this->toArray()->shouldBeArray();
+    }
+
+    function it_return_array_with_fixtures_data()
+    {
+        $this->toArray()->shouldBe(array(
+            'foo' => array(
+                'bar' => array(
+                    'abra' => 'cadabra',
+                ),
+                'baz' => array(
+                    'boom' => 12345,
+                ),
+            ),
+        ));
+
+
+        $this->get('foo/bar')->toArray()->shouldBe(array('abra' => 'cadabra'));
+    }
 }

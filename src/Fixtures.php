@@ -33,7 +33,7 @@ final class Fixtures implements ArrayAccess
      *
      * @param string $path
      *
-     * @return array|mixed
+     * @return Fixtures|mixed
      * @throws InvalidArgumentException
      */
     public function get($path)
@@ -91,6 +91,16 @@ final class Fixtures implements ArrayAccess
     public function offsetUnset($offset)
     {
         throw new LogicException('Unset value on fixtures is not supported!');
+    }
+
+    /**
+     * Return array representation of fixtures.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
