@@ -18,9 +18,5 @@ php:
   - hhvm # on Trusty only
   - nightly
 
-install:
-  - composer install --dev --no-interaction --optimize-autoloader
-
-script:
-  - php bin/phpspec run
-  - php bin/behat --format pretty
+install: composer install --dev --no-interaction --optimize-autoloader
+script: composer run tests
