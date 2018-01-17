@@ -7,7 +7,16 @@
 
 # Behat fixtures extension
 
-Behat extension for loading fixtures to your context.
+Behat extension for loading and injecting fixtures to your context.
+It make life easier when you need test data in your features and you want to separate them from your scenarios.
+
+Simple as:
+* install extension (`composer require`)
+* create your fixture files (`vim fixtures/users.yml`)
+* configure it (`vim behat.yml`)
+* add `Fixtures` object to your feature context constructor (`__construct(Fixtures $fixtures)`)
+
+Enjoy!
 
 ## Installation
 
@@ -35,7 +44,7 @@ with-many-friends:
   password: test1234
 ```
 
-Add extension configuration to your `behat.yml` file:
+Add extension configuration to your `behat.yml` file. `fixtures` is an array of files to load.
 
 ```yaml
 default:
@@ -43,9 +52,11 @@ default:
     MKolecki\Behat\FixturesExtension:
       fixtures:
         users: %paths.base%/fixtures/development/users.yaml
+        companies: %paths.base%/fixtures/development/companies.yaml
+        admins: %paths.base%/fixtures/development/admins.yaml
 ```
 
-Use fixtures in your context code:
+Use fixtures in your feature context code:
 
 ```php
 <?php
@@ -63,7 +74,7 @@ class LoginContext implements Context
     }
 
     /**
-     * @Then I login with :user
+     * @Then I login with user :user
      */
     public function iLoginWithUser($user)
     {
@@ -80,10 +91,10 @@ class LoginContext implements Context
 In your `*.feature` file you can now refer to user definition:
 
 ```feature
-Feature: I need verify login process
+Feature: User can login
 
   Scenario: I can login to my application and see home page
-    When I open login website
-    And I login with "with-many-friends"
+    When I open login page
+    And I login with user "with-many-friends"
     Then I see my home page
 ```
