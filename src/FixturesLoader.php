@@ -2,6 +2,7 @@
 
 namespace MKolecki\Behat\FixturesExtension;
 
+use Exception;
 use InvalidArgumentException;
 
 final class FixturesLoader
@@ -14,12 +15,19 @@ final class FixturesLoader
      * @var array
      */
     private $parsers;
+    /**
+     * @var Isolator
+     */
+    private $isolator;
 
     public function __construct(
         FixturesFactory $fixturesFactory,
+        Isolator $isolator,
         array $parsers = array()
     ) {
         $this->fixturesFactory = $fixturesFactory;
+        $this->isolator = $isolator;
+
         foreach ($parsers as $parser) {
             $this->addParser($parser);
         }
@@ -46,7 +54,7 @@ final class FixturesLoader
         $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
         if (!array_key_exists($ext, $this->parsers)) {
-            throw new InvalidArgumentException("'Could not find parser for '{$ext}' file type when processing path: '{$path}'");
+            throw new InvalidArgumentException("Could not find parser for '{$ext}' file type when processing path: '{$path}'");
         }
 
         return $this->parsers[$ext];
@@ -59,21 +67,25 @@ final class FixturesLoader
      *
      * @throws Parser\ParsingException
      * @throws InvalidArgumentException
+     * @throws Exception
      */
     public function load(array $paths)
     {
-        $data = array();
+        $fixturesData = array();
 
         foreach ($paths as $key => $file) {
-            $fileData = $this->getParserFor($file)->parse(file_get_contents($file));
+            $parser = $this->getParserFor($file);
+            $content = $this->isolator->fileGetContents($file);
+
+            $fileData = $parser->parse($content);
 
             if (!is_int($key)) {
-                $fileData = array($key => $fileData);
+                $fixturesData[$key] = $fileData;
+            } else {
+                $fixturesData = array_merge($fixturesData, $fileData);
             }
-
-            $data = array_merge($data, $fileData);
         }
 
-        return $this->fixturesFactory->createFixture($data);
+        return $this->fixturesFactory->createFixture($fixturesData);
     }
 }

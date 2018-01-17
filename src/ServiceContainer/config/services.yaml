@@ -18,10 +18,14 @@ services:
       - { name: mkolecki.behat_fixtures_ext.parser }
 
 
+  mkolecki.behat_fixtures_ext.isolator:
+    class: MKolecki\Behat\FixturesExtension\Isolator
+
   mkolecki.behat_fixtures_ext.fixtures_loader:
     class: MKolecki\Behat\FixturesExtension\FixturesLoader
     arguments:
       - @mkolecki.behat_fixtures_ext.fixtures_factory
+      - @mkolecki.behat_fixtures_ext.isolator
 
 
   mkolecki.behat_fixtures_ext.fixtures_arguments_resolver:

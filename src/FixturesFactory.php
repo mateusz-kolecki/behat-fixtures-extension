@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mkolecki
- * Date: 13.01.18
- * Time: 23:02
- */
-
 namespace MKolecki\Behat\FixturesExtension;
 
 

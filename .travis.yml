@@ -23,3 +23,4 @@ install:
 
 script:
   - php bin/phpspec run
+  - php bin/behat --format pretty
